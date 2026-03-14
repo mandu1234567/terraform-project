@@ -6,15 +6,11 @@ variable "vpc_name" {
     description = "Name tag for the VPC"
     type        = string
 }
-variable "public_subnet_cidr" {
-  description = "List of public subnet CIDRs"
-  type        = list(string)
+variable "public_subnet_count" {
+  description = "Number of public subnets"
+  type        = number
 }
-variable "private_subnet_cidr" {
-  description = "List of private subnet CIDRs"
-  type        = list(string)
-}
-variable "azs" {
-  description = "Availability zones for subnets"
-  type        = list(string)
+variable "private_subnet_count" {
+  description = "Number of private subnets"
+  type        = number
 }
