@@ -5,3 +5,5 @@ public_subnet_count  = 3
 private_subnet_count = 3
 rds_db_username       = "admin"
 rds_db_parameter_name = "rds_db_password"
+instance_type = "t3.micro"
+jar_file_name         = "datastore-0.0.7.jar"

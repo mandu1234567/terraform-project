@@ -26,3 +26,11 @@ variable "rds_db_parameter_name" {
   description = "Name of the SSM parameter that contains the RDS database password"
   type        = string
 }
+variable "instance_type" {
+  description = "Instance type for the launch template"
+  type        = string
+}
+variable "jar_file_name" {
+  description = "Name of the JAR file to be used in the application"
+  type        = string
+}
