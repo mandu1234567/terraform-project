@@ -9,6 +9,10 @@ module "asg" {
   rds_db_parameter_name  = var.rds_db_parameter_name
   rds_db_username        = var.rds_db_username
   rds_db_endpoint = module.storage.rds_db_endpoint
+  nlb_tg_arn = module.nlb.nlb_tg_arn
+  desired_capacity = var.desired_capacity
+  max_size = var.max_size
+  min_size = var.min_size
 
 
 }

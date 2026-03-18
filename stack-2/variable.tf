@@ -34,3 +34,15 @@ variable "jar_file_name" {
   description = "Name of the JAR file to be used in the application"
   type        = string
 }
+variable "desired_capacity" {
+  type        = number
+  description = "Desired capacity of the Auto Scaling Group"
+}
+variable "max_size" {
+  type        = number
+  description = "Maximum size of the Auto Scaling Group"
+}
+variable "min_size" {
+  type        = number
+  description = "Minimum size of the Auto Scaling Group"
+}

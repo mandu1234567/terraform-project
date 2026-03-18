@@ -34,3 +34,19 @@ variable "rds_db_endpoint" {
   type        = string
   description = "RDS database instance endpoint"
 }
+variable "nlb_tg_arn" {
+  type        = string
+  description = "ARN of the NLB target group"
+} 
+variable "desired_capacity" {
+  type        = number
+  description = "Desired capacity of the Auto Scaling Group"
+}
+variable "max_size" {
+  type        = number
+  description = "Maximum size of the Auto Scaling Group"
+}
+variable "min_size" {
+  type        = number
+  description = "Minimum size of the Auto Scaling Group"
+}

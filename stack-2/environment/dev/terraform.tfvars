@@ -7,3 +7,6 @@ rds_db_username       = "admin"
 rds_db_parameter_name = "rds_db_password"
 instance_type = "t3.micro"
 jar_file_name         = "datastore-0.0.7.jar"
+max_size = 1
+min_size = 1    
+desired_capacity = 1

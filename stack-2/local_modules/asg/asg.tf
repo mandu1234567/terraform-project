@@ -64,3 +64,36 @@ resource "aws_launch_template" "backend_app_launch_template" {
     create_before_destroy = true
   }
 }
+
+resource "aws_autoscaling_group" "backend_app_asg" {
+  name                 = "${var.env_name}-asg"
+  desired_capacity     = var.desired_capacity
+  max_size             = var.max_size
+  min_size             = var.min_size
+  vpc_zone_identifier  = var.private_subnet_id
+
+  launch_template {
+    id      = aws_launch_template.backend_app_launch_template.id
+    version = "$Latest"
+  }
+
+  health_check_type          = "EC2"
+  health_check_grace_period  = 300
+  force_delete               = true
+  wait_for_capacity_timeout  = "0"
+
+  tag {
+    key                 = "created_by"
+    value               = "${var.env_name}-asg"
+    propagate_at_launch = true
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "aws_autoscaling_attachment" "asg_attachment" {
+  autoscaling_group_name = aws_autoscaling_group.backend_app_asg.name
+  lb_target_group_arn    = var.nlb_tg_arn
+}
