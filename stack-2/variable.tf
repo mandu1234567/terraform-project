@@ -46,3 +46,7 @@ variable "min_size" {
   type        = number
   description = "Minimum size of the Auto Scaling Group"
 }
+variable "slack_web_hook_url" {
+  type        = string
+  description = "Slack webhook url."
+}
