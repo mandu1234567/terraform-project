@@ -9,4 +9,3 @@
 .terraform.lock.hcl
 # documents
 *.doc
-*.tfvars
