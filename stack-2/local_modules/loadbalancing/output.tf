@@ -9,4 +9,5 @@ output "alb_tg_arn" {
 }
 output "alb_dns_endpoint" {
   value = aws_lb.alb.dns_name
+
 }

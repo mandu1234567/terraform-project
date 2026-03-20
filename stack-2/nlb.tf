@@ -4,5 +4,7 @@ module "nlb" {
   vpc_id = module.project_networking.vpc_id
   private_subnet_ids = module.project_networking.private_subnet_ids
   vpc_cidr = var.vpc_cidr
+
   public_subnet_ids = module.project_networking.public_subnet_ids
+
 }
