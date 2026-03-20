@@ -10,4 +10,5 @@
 # documents
 *.doc
 *.tfvars
+terraform.tfvars
 

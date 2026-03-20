@@ -27,14 +27,9 @@ resource "aws_security_group" "fe_asg_sg" {
       }
 }
 
-resource "aws_key_pair" "app_fe_key_pair" {
-  key_name   = "${var.env_name}-key"
-  public_key = file("${path.module}/include/mykey.pub")
-}
-
 
 resource "aws_iam_instance_profile" "fe_profile" {
-  name = "${var.env_name}-access-profile"
+  name = "${var.env_name}-be-access-profile"
   role = aws_iam_role.fe_inst_role.name
 }
 
@@ -44,7 +39,7 @@ resource "aws_launch_template" "frontend_app_launch_template" {
   instance_type        = var.instance_type
 
   user_data            = base64encode(local.user_data_fe)
-  key_name             = aws_key_pair.app_fe_key_pair.key_name
+  key_name             = aws_key_pair.app_key_pair.key_name
 
   iam_instance_profile {
     arn = aws_iam_instance_profile.fe_profile.arn
@@ -63,7 +58,7 @@ resource "aws_launch_template" "frontend_app_launch_template" {
 }
 
 resource "aws_autoscaling_group" "frontend_app_asg" {
-  name                 = "${var.env_name}-asg"
+  name                 = "${var.env_name}-fe-asg"
   desired_capacity     = var.desired_capacity
   max_size             = var.max_size
   min_size             = var.min_size

@@ -66,7 +66,7 @@ resource "aws_launch_template" "backend_app_launch_template" {
 }
 
 resource "aws_autoscaling_group" "backend_app_asg" {
-  name                 = "${var.env_name}-asg"
+  name                 = "${var.env_name}-be-asg"
   desired_capacity     = var.desired_capacity
   max_size             = var.max_size
   min_size             = var.min_size

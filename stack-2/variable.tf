@@ -50,3 +50,25 @@ variable "slack_web_hook_url" {
   type        = string
   description = "Slack webhook url."
 }
+variable "origin_id" {
+  type        = string
+  description = "Origin id"
+}
+variable "default_behavior_allowed_methods" {
+  type        = list(string)
+  description = "Default behaviour allow methods"
+}
+variable "default_behavior_cached_methods" {
+  type        = list(string)
+  description = "Default behaviour cached methods"
+}
+variable "default_behavior_forwarded_values_header" {
+  type        = list(string)
+  description = "Default behaviour forwarded value headers"
+}
+variable "domain_name" {
+  type = string
+}
+variable "hosted_zone_id" {
+  type = string
+}
